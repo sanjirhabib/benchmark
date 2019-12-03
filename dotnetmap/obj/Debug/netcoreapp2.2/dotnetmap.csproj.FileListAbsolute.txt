@@ -1,0 +1,11 @@
+/home/web/benchmark/map/dotnetmap/bin/Debug/netcoreapp2.2/dotnetmap.deps.json
+/home/web/benchmark/map/dotnetmap/bin/Debug/netcoreapp2.2/dotnetmap.runtimeconfig.json
+/home/web/benchmark/map/dotnetmap/bin/Debug/netcoreapp2.2/dotnetmap.runtimeconfig.dev.json
+/home/web/benchmark/map/dotnetmap/bin/Debug/netcoreapp2.2/dotnetmap.dll
+/home/web/benchmark/map/dotnetmap/bin/Debug/netcoreapp2.2/dotnetmap.pdb
+/home/web/benchmark/map/dotnetmap/obj/Debug/netcoreapp2.2/dotnetmap.csprojAssemblyReference.cache
+/home/web/benchmark/map/dotnetmap/obj/Debug/netcoreapp2.2/dotnetmap.csproj.CoreCompileInputs.cache
+/home/web/benchmark/map/dotnetmap/obj/Debug/netcoreapp2.2/dotnetmap.AssemblyInfoInputs.cache
+/home/web/benchmark/map/dotnetmap/obj/Debug/netcoreapp2.2/dotnetmap.AssemblyInfo.cs
+/home/web/benchmark/map/dotnetmap/obj/Debug/netcoreapp2.2/dotnetmap.dll
+/home/web/benchmark/map/dotnetmap/obj/Debug/netcoreapp2.2/dotnetmap.pdb

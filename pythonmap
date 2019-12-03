@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+map={}
+for i in range(5000000):
+    map["id."+str(i%500000)]="val."+str(i)
+print(len(map))
+print(map["id.10000"])
+    

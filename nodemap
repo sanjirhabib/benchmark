@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+ret={}
+for(i=0; i<5000000; i++){
+	ret["id."+(i%500000)]="val."+i
+}
+console.log(ret["id.10000"])

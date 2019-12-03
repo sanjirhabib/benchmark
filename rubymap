@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+ret={}
+for i in 0..5000000 do
+  ret["id."+(i%500000).to_s]="val."+i.to_s
+end
+puts ret.length()
+puts ret["id.10000"]

@@ -1,0 +1,5 @@
+#!/bin/bash
+/usr/bin/time -v $* 2>/tmp/bm.txt
+printf $*
+printf ": "
+cat /tmp/bm.txt | awk -F':' '/User time/ {printf "Time:" $2 ", ";} /Maximum resident set size/ {printf "Memory: " int($2/1024) " mb\n"; }'

@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?
+$ret=[];
+for($i=0; $i<5000000; $i++){
+	$ret["id.".($i%500000)]="val.".$i;
+}
+print(count($ret))."\n";
+print $ret["id.10000"]."\n";

@@ -1,0 +1,6 @@
+#!/usr/bin/env luajit
+ret={}
+for i=1,5000000 do
+	ret["id."..(i%500000)]="val."..i
+end
+print(ret["id.10000"])
