@@ -2,7 +2,7 @@
 
 Benchmark numbers measured for a bunch of porgramming language implementations.
 
-### "So, what did you measure?"
+#### "So, what did you measure?"
 
 Basically gc performance. Plus a little bit of hash table and string operation.
 Every program bellow creates a hash map sized 500,000 and populates it x10 time to check GC performance and total memory consumption.
@@ -15,7 +15,9 @@ Compiled languages like Swift and Go aren't x10 faster than scripting languages,
 
 PHP isn't slow any more. And python, the de facto language for AI/ML, isn't faster than the others.
 
-Follows the numbers for a sample run
+#### Show me the numbers!
+
+Here it is, from a sample run
 
 ```
 $ make | grep Time
