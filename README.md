@@ -15,7 +15,7 @@ Compiled languages like Swift and Go aren't x10 faster than scripting languages,
 
 PHP isn't slow any more. And python, the de facto language for AI/ML, isn't faster than the others.
 
-Follows the numbers for a simple run
+Follows the numbers for a sample run
 
 ```
 $ make | grep Time
