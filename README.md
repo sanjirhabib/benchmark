@@ -1,8 +1,8 @@
-# benchmark
-Benchmark Numbers
-Performed 
+# Benchmark
 
-### "What did you measure?"
+Benchmark numbers measured for a bunch of porgramming language implementations.
+
+### "So, what did you measure?"
 
 Basically gc performance. Plus a little bit of hash table and string operation.
 Every program bellow creates a hash map sized 500,000 and populates it x10 time to check GC performance and total memory consumption.
