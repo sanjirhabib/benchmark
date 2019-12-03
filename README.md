@@ -5,7 +5,7 @@ Performed
 ### "What did you measure?"
 
 Basically gc performance. Plus a little bit of hash table and string operation.
-Every program bellow creates an hash map sized 500,000 and populates it x10 time to check GC performance and total memory consumption.
+Every program bellow creates a hash map sized 500,000 and populates it x10 time to check GC performance and total memory consumption.
 
 #### What it says :
 
@@ -14,6 +14,9 @@ Previously everyone thought lua-jit is the fastest scripting language around. Al
 Compiled languages like Swift and Go aren't x10 faster than scripting languages, as it had been previously.
 
 PHP isn't slow any more. And python, the de facto language for AI/ML, isn't faster than the others.
+
+Follows the numbers for a simple run
+
 ```
 $ make | grep Time
 ./gomap: Time: 2.16, Memory: 147 mb
