@@ -16,12 +16,17 @@ argglobal
 $argadd README.md
 edit README.md
 argglobal
-let s:l = 104 - ((10 * winheight(0) + 11) / 22)
+let s:l = 152 - ((21 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 104
-normal! 0
+keepjumps 152
+let s:c = 156 - ((99 * winwidth(0) + 58) / 116)
+if s:c > 0
+  exe 'normal! ' . s:c . '|zs' . 156 . '|'
+else
+  normal! 0156|
+endif
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf

@@ -135,3 +135,18 @@ $
 The benchmark code is in cmap.c
 
 But the library is in clib/ directory
+
+
+#### I want to improve on some code
+
+Rules :
+
+- Don't pre allocate memory.
+- Don't optimize for the benchmark.
+- Use strring concat or format() which ever is faster.
+- Use unordered map if that's available.
+
+I personally prefer unordered map that stores and enumerate the items in insertion order.
+Which is wny I had to write my own map data structure in C.
+This is not standard and none of the c++ map library support it.
+JavaScript/node didn't support it either in its initial release. But later changed their behaviour on popular demand. Node mow enumerate on insertion order.
