@@ -1,10 +1,10 @@
 # Benchmark
 
-Benchmark numbers measured for a bunch of porgramming language implementations.
+Benchmark for C vs 20 other languages.
 
-#### "So, what did you measure?"
+#### What does it measure?
 
-- GC performance
+- Memory manager performance
 - string operation
 - hashmap speed.
 
@@ -98,5 +98,6 @@ There's a list of optimizations that I DIDN'T perform :
 - No excessive use of C macros for inlining. Used a lot of one-line-functions, instead of macros.
 - Values are boxed type type. Not pointer passed.
 - A runtime type-inferance at work to make the hashmap flexible for all types of data. Unlike compile time code generation in C++.
+- Releasing all memory before exit. No memory leaks. memcheck-ed.
 
 So basically just a regular C program, without any special optimization.
