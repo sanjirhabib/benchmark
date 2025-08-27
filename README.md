@@ -16,7 +16,7 @@ This basically is 4 line task.
 - Add 500,000 items 10 times over.
 - Measure speed and memory consumption.
 
-Score is based on giving equal weight on both speed and memory consuption.
+Score gives equal weight on speed and memory.
 
 [score] = [run time seceonds] x [memory in MB] — The lower the better.
 
