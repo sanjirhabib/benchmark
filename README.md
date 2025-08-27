@@ -5,13 +5,13 @@ Benchmark for C vs 20 other languages.
 #### What does it measure?
 
 - Memory manager performance
-- string operation
-- hashmap speed.
+- String operation
+- Hashmap speed.
 
 These three things in one go. Critical in web application development.
 
 #### Process
-This basically is 4 line code.
+This basically is 4 line task.
 - Create a hashmap.
 - Add 500,000 items 10 times over.
 - Measure speed and memory consumption.
@@ -44,7 +44,7 @@ The last make command will start benchmark test.
 
 #### Show me the numbers!
 
-Here's the numbers from my rusty laptop. Ordered by score on the last column, the loweer the better
+Here's the numbers from my rusty laptop. Ordered by score on the last column, the lower the better
 
 ```
 ./phpmap        Time:  0.65   Memory:   70 mb    Score:  45
@@ -101,3 +101,6 @@ There's a list of optimizations that I DIDN'T perform :
 - Releasing all memory before exit. No memory leaks. memcheck-ed.
 
 So basically just a regular C program, without any special optimization.
+
+
+#### How to build the C program.

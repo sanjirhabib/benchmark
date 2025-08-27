@@ -49,6 +49,8 @@ clean:
 	#rm -f javamap
 
 c:
+	cd clib && make clean
+	make -C clib
 	gcc -g -O2 -o cmap cmap.c -lm -Lclib -lcvar -Iclib
 v:
 	v vmap.v
