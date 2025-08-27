@@ -142,11 +142,20 @@ But the library is in clib/ directory
 Rules :
 
 - Don't pre allocate memory.
+- Don't hint the hashmap on what's to come.
 - Don't optimize for the benchmark.
-- Use strring concat or format() which ever is faster.
+- Use string concat or format() whichever is faster.
 - Use unordered map if that's available.
 
-I personally prefer unordered map that stores and enumerate the items in insertion order.
-Which is wny I had to write my own map data structure in C.
-This is not standard and none of the c++ map library support it.
-JavaScript/node didn't support it either in its initial release. But later changed their behaviour on popular demand. Node mow enumerate on insertion order.
+I personally prefer unordered map that stores and enumerates items in insertion order.
+Which is wny I had to write my own hashmap.
+Node that this is not standard, none of the c++ map libraries support it.
+JavaScript/node didn't support it either in its initial release.
+But later changed to enumerate by insertion order after developer outcry.
+
+
+#### What's the design of the hash map?
+
+Technically it's not a hashmap. Just two vectors for keys and values seperately.
+And a third vector that carry the item index linked with hash.
+Load factor is ~1. 

@@ -10,17 +10,17 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess+=aoO
-badd +0 zigmap.zig
+badd +0 README.md
 argglobal
 %argdel
-$argadd zigmap.zig
-edit zigmap.zig
+$argadd README.md
+edit README.md
 argglobal
-let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+let s:l = 154 - ((14 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 154
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
