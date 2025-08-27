@@ -95,13 +95,13 @@ There's a list of optimizations that I DIDN'T perform :
 - No small string optimization like in C++ 
 - No SIMD AVX from my code, other than what the compiter does internally.
 - No pre-memory allocation, or custom memeory manager.
-- Key and value memory is allocated by 1 every time an element is added. No buffer.
-- No excessive use of C macros for inlining. Used a lot of one-line-functions, instead of macros.
-- Values are boxed type type. Not pointer passed.
-- A runtime type-inferance at work to make the hashmap flexible for all types of data. Unlike compile time code generation in C++.
-- Releasing all memory before exit. No memory leaks. memcheck-ed.
+- Memory allocation in increased by 1 every time an element is added. No buffer.
+- No excessive use of C macros for inlining. Depended on a lot of one-line-functions instead.
+- Values are all boxed. Not pointer passing around.
+- A runtime type-inferance is at work making the hashmap flexible for any size of data. Unlike compile time code generation in C++.
+- Released all memory before exit. Clean valgrind memcheck.
 
-So basically just a regular C program, without any special optimization.
+So basically just a regular C program, without any specific optimization.
 
 
 #### How do I build the programs?
