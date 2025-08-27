@@ -139,7 +139,8 @@ The supporting library is in the ```clib/``` directory.
 
 
 #### How Can I Improve the Code?
-Rules for contributions:Do not pre-allocate memory.
+Rules for contributions:
+- Do not pre-allocate memory.
 - Do not hint to the hashmap about upcoming operations.
 - Do not optimize specifically for the benchmark.
 - Run on a single processor; do not spawn threads.
