@@ -1,36 +1,35 @@
 # Benchmark
 
-Benchmark for C vs 20 other languages.
+A benchmark comparing C against 20 other programming languages.
 
-#### What does it measure?
+#### What Does It Measure?
 
 - Memory manager performance
-- String operation
-- Hashmap speed.
+- String operations
+- Hashmap speed
 
-These three things in one go. Critical in web application development.
+These three aspects are evaluated simultaneously, as they are critical in web application development
 
 #### The Task
-Basically a 4 line task.
 
+A simple 4-line task:
 - Create a hashmap.
-- Add 500,000 items 10 times over.
-- Print 2 values to indicate the task was successful.
+- Add 500,000 items 10 times.
+- Print 2 values to verify task completion.
 
-Score gives equal weight on speed and memory.
+The score is calculated as:
 
-[score] = [run time seceonds] x [memory in MB] — The lower the better.
+```[score] = [run time in seconds] × [memory in MB]```
 
+Lower scores are better, giving equal weight to speed and memory usage.
 
-#### What it says :
+#### What It Reveals
+These tests were initially written in 2010, when the following assumptions were common:
+- LuaJIT was the fastest scripting language, nearly as fast as C.
+- Compiled languages like Swift and Go were 10x faster than interpreted languages like PHP or Ruby.
+- PHP was the slowest of all.
 
-Initially wrote these tests in 2010, when these were generally assumed :
-
-- lua-jit is the fastest scripting language around. Almost as fast as C.
-- Compiled languages like Swift and Go are x10 faster than interpretated languages, like PHP or Ruby
-- PHP is the slowest of them all.
-
-None of the above are true anymore.
+None of these assumptions hold true today.
 
 ### How do I run it?
 
@@ -45,7 +44,7 @@ The last make command will start benchmark test.
 
 #### Show me the numbers!
 
-Here are the numbers after running on my old laptop. Ordered by score on the last column, the lower the better
+Results from running the benchmark on my old laptop, ordered by score (lower is better):
 
 ```
 ./phpmap        Time:  0.65   Memory:   70 mb    Score:  45
@@ -77,41 +76,42 @@ java            Time:  2.27   Memory:  420 mb    Score:  953
 ```
 
 #### Summary
-- My minimal hashmap is not slower than C++'s map, undered_map, densemap, or sparsemap.
-- glibc's malloc() free() is not slower than manual memory management.
-- String manipulation is the main bottleneck.
+
+- My minimal hashmap is not slower than C++'s map, unordered_map, densemap, or sparsemap.
+- glibc's malloc() and free() are not slower than manual memory management.
+- String manipulation is the primary bottleneck.
+
+
 
 
 #### The surprises
-Even though I can beat other languages, I can't beat PHP. No idea why or how they are doing it.
+Despite outperforming many languages, my implementation couldn't beat PHP. The reason remains unclear, even after attempting optimizations like caching hash values as PHP does.
 
-I tried other things like caching the hash value like PHP, but nothing helped.
+#### What Optimizations Were Used in the C Code?
+The C code deliberately avoids several optimizations:
+- No caching of string hashes (unlike PHP).
+- No small string optimization (unlike C++).
+- No SIMD AVX instructions beyond what the compiler applies.
+- No pre-allocation of memory or custom memory manager.
+- Memory allocation increases by 1 for each element added, with no buffer.
+- No excessive use of C macros for inlining; relies on one-line functions instead.
+- Values are boxed, not passed as pointers.
+- Runtime type inference enables a flexible hashmap for any data size, unlike C++'s compile-time code generation.
+- All memory is released before exit, ensuring a clean Valgrind memcheck.
 
-#### What other optimizations did you put in your C code?
+In essence, this is a straightforward C program without specialized optimizations
 
-There's a list of optimizations that I DIDN'T perform :
-
-- Strings don't cache hash. Like how it's done in PHP
-- No small string optimization like in C++ 
-- No SIMD AVX from my code, other than what the compiter does internally.
-- No pre-memory allocation, or custom memeory manager.
-- Memory allocation in increased by 1 every time an element is added. No buffer.
-- No excessive use of C macros for inlining. Depended on a lot of one-line-functions instead.
-- Values are all boxed. Not pointer passing around.
-- A runtime type-inferance is at work making the hashmap flexible for any size of data. Unlike compile time code generation in C++.
-- Released all memory before exit. Clean valgrind memcheck.
-
-So basically just a regular C program, without any specific optimization.
 
 
 #### How do I build the programs?
 ```
-make clean        # to clear revious builds
-make all          # to build programs one by one, you need to have the build invironment installed
-make              # to run the benchmark test
+make clean        # Clear previous builds
+make all          # Build all programs (requires the build environment to be installed)
+make              # Run the benchmark test
 ```
 
-or, for individual benchmark
+To build and benchmark an individual program, e.g., C++:
+
 
 ```
 make cpp             # to build the cpp program
@@ -119,7 +119,8 @@ bm cppmap            # benchmark cpp
                      # `bm` is a bash file
 ```
 
-Example : with rust
+Example with Rust:
+
 ```
 $ make rust
 rustc -O rustmap.rs
@@ -132,31 +133,26 @@ $
 
 #### Where's the C code?
 
-The benchmark code is in cmap.c
+The benchmark code is in ```cmap.c```
 
-But the library is in clib/ directory
-
-
-#### I want to improve on some code
-
-Rules :
-
-- Don't pre allocate memory.
-- Don't hint the hashmap on what's to come.
-- Don't optimize for the benchmark.
-- Run on single processor. Don't spawn threads.
-- Use string concat or format() whichever is faster.
-- Use unordered map if that's available.
-
-I personally prefer unordered map that stores and enumerates items in insertion order.
-Which is wny I had to write my own hashmap.
-Node that this is not standard, none of the c++ map libraries support it.
-JavaScript/node didn't support it either in its initial release.
-But later changed to enumerate by insertion order after developer outcry.
+The supporting library is in the ```clib/``` directory.
 
 
-#### What's the design of the hash map?
+#### How Can I Improve the Code?
+Rules for contributions:Do not pre-allocate memory.
+- Do not hint to the hashmap about upcoming operations.
+- Do not optimize specifically for the benchmark.
+- Run on a single processor; do not spawn threads.
+- Use string concatenation or format(), whichever is faster.
+- Use an unordered map if available.
 
-Technically it's not a hashmap. Just two vectors for keys and values seperately.
-And a third vector that carry the item index linked with hash.
-Load factor is ~1. 
+I prefer an unordered map that stores and enumerates items in insertion order, which is why I wrote my own hashmap. Note that this behavior is non-standard and not supported by C++ map libraries. JavaScript/Node.js initially lacked this feature but later adopted insertion-order enumeration after developer feedback.
+
+#### What's the Design of the Hashmap?
+
+Technically, it's not a traditional hashmap. It uses:
+- Two separate vectors for keys and values.
+- A third vector to store item indices linked with hashes.
+- A load factor of approximately 1.
+
+
