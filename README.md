@@ -144,6 +144,7 @@ Rules :
 - Don't pre allocate memory.
 - Don't hint the hashmap on what's to come.
 - Don't optimize for the benchmark.
+- Run on single processor. Don't spawn threads.
 - Use string concat or format() whichever is faster.
 - Use unordered map if that's available.
 
