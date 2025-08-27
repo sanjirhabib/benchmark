@@ -16,11 +16,11 @@ argglobal
 $argadd README.md
 edit README.md
 argglobal
-let s:l = 101 - ((19 * winheight(0) + 11) / 22)
+let s:l = 115 - ((17 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 101
+keepjumps 115
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0

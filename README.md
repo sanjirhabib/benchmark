@@ -103,4 +103,28 @@ There's a list of optimizations that I DIDN'T perform :
 So basically just a regular C program, without any special optimization.
 
 
-#### How to build the C program.
+#### How to build the programs?
+```
+make clean        # to clear all previous builds
+make all          # to build programs one by one, you need to have the build invironment installed
+make              # to run the benchmark test
+```
+
+or, for individual benchmark
+
+```
+make cpp             # to build the cpp program
+bm cppmap            # benchmark cpp
+                     # `bm` is a bash file
+```
+
+Example : with rust
+```
+$ make rust
+rustc -O rustmap.rs
+$ bm rustmap
+500000
+val.4510000
+rustmap  	Time: 2.92 	Memory: 103 mb	Score: 301
+$
+```
