@@ -105,7 +105,7 @@ So basically just a regular C program, without any special optimization.
 
 #### How to build the programs?
 ```
-make clean        # to clear all previous builds
+make clean        # to clear revious builds
 make all          # to build programs one by one, you need to have the build invironment installed
 make              # to run the benchmark test
 ```
