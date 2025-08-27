@@ -45,7 +45,7 @@ The last make command will start benchmark test.
 
 #### Show me the numbers!
 
-Here's the numbers from my rusty laptop. Ordered by score on the last column, the lower the better
+Here are the numbers after running on my old laptop. Ordered by score on the last column, the lower the better
 
 ```
 ./phpmap        Time:  0.65   Memory:   70 mb    Score:  45
