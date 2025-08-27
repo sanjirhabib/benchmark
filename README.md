@@ -18,21 +18,20 @@ This basically is 4 line code.
 
 Score is based on giving equal weight on both speed and memory consuption.
 
-score = run time seceonds x memory in MB. The lower the better.
-
+[score] = [run time seceonds] x [memory in MB] — The lower the better.
 
 
 #### What it says :
 
-I initially wrote these tests in the 2010s, when it was thought.
+I initially wrote these tests in 2010s, when it was generally assumed :
 
 - lua-jit is the fastest scripting language around. Almost as fast as C.
-- Compiled languages like Swift and Go are x10 faster than scripting languages, like PHP or Ruby
+- Compiled languages like Swift and Go are x10 faster than interpretated languages, like PHP or Ruby
 - PHP is the slowest of them all.
 
 None of the above are true anymore.
 
-#### How do I ron it?
+### How do I run it?
 
 ```
 git clone --recursive --depth=1 https://github.com/sanjirhabib/benchmark
@@ -41,11 +40,11 @@ make all
 make
 
 ```
-The last make command will run the benchmark test.
+The last make command will start benchmark test.
 
 #### Show me the numbers!
 
-Here's the numbers from my old computer. Ordered by score, lowest (best) to highest (worse)
+Here's the numbers from my rusty laptop. Ordered by score on the last column, the loweer the better
 
 ```
 ./phpmap        Time:  0.65   Memory:   70 mb    Score:  45
@@ -77,26 +76,27 @@ java            Time:  2.27   Memory:  420 mb    Score:  953
 ```
 
 #### Summary
-- My amature coded hashmap is not slower than C++'s map, undered_map, densemap, or sparsemap.
-- glibc's malloc() free() is not slower than manual memory management whatever I can write.
-- String manipulation with pointer + length is speedy enough.
+- My minimal hashmap is not slower than C++'s map, undered_map, densemap, or sparsemap.
+- glibc's malloc() free() is not slower than manual memory management.
+- String manipulation is the main bottleneck.
 
 
 #### The surprises
-I can beat the other languages, but not PHP. No idea why or how they are doing it.
+Even though I can beat other languages, I can't beat PHP. No idea why or how they are doing it.
 
-I tried caching the hash value like PHP, but that didn't help either.
+I tried other things like caching the hash value like PHP, but nothing helped.
 
-#### What other optimizations did you put in your C coee?
-None that I can tell you of.
+#### What other optimizations did you put in your C code?
 
-- Strings don't cache the hash. Like how it's done in PHP
+There's a list of optimizations that I DIDN'T perform :
+
+- Strings don't cache hash. Like how it's done in PHP
 - No small string optimization like in C++ 
 - No SIMD AVX from my code, other than what the compiter does internally.
 - No pre-memory allocation, or custom memeory manager.
-- Memory is allocated by 1 every time an element is added. No buffer.
-- No excessive use of C macros for inlining. Using one line functions rather than macros.
-- Everything is boxed. No excessive pointer passing.
-- A runtime type inferance is at work so that the hashmap is flexible for all types of data. Not only strings or int.
+- Key and value memory is allocated by 1 every time an element is added. No buffer.
+- No excessive use of C macros for inlining. Used a lot of one-line-functions, instead of macros.
+- Values are boxed type type. Not pointer passed.
+- A runtime type-inferance at work to make the hashmap flexible for all types of data. Unlike compile time code generation in C++.
 
-So basically just a regular C program, without optimization.
+So basically just a regular C program, without any special optimization.
