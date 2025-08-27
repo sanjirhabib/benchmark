@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+%ret=();
+foreach $i (0..5000000){
+	$ret{"id.".($i%500000)}="val.".$i;
+}
+@keys=keys %ret;
+$len=@keys;
+print $len."\n";
+print $ret{"id.10000"}."\n";

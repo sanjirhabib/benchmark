@@ -1,0 +1,61 @@
+#!/bin/bash
+if [[ "$1" == "-h" ]]; then
+	echo ""
+	echo "Usage : cheader <file.c>"
+	exit -1
+fi
+outdir=$2
+if [[ ! $outdir ]]; then
+	outdir=.
+fi
+headerfile=$(basename $1 .c).h
+outfile=$outdir/$headerfile
+if [[ $outdir == "-" ]]; then
+	outfile=/dev/stdout
+fi
+pwd
+echo writing to $outfile
+echo '#pragma once' > $outfile
+gawk "
+#mark header
+
+	/\/\*header/{header=1;next}
+
+#header end
+
+	/end\*\//{header=0;next}
+
+
+#enum start
+	/^\/\/enum$/{isenum=1;next}
+	match(\$0,/^\/\/enum (.+)$/,out){isenum=1; enumname=out[1]; next}
+
+#print header, and loop
+
+	header{print;next;}
+
+#enum lines
+	isenum && enumname && /{/{print \"typedef enum {\"; next}
+	isenum && /{/{print \"enum {\"; next}
+
+	isenum && enumname && /}/{print \"}\" enumname \";\"; isenum=0; enumnname=0; next}
+	isenum && /}/{print \"};\"; isenum=0; enumnname=0; next}
+	isenum && match(\$0,/\"([^\"]+)\",\/\/(.*)/,out){
+		print \"\t\" out[1] \"=\" out[2] \",\";
+		next
+	}
+	isenum && match(\$0,/\"([^\"]+)\".*/,out){print \"\t\" out[1] \",\"; next}
+
+#function definition
+
+	/^[a-zA-Z].*)[ ]*?{/ && match(\$0,/^([a-zA-Z][^{]+){(.*$)/,f) && !/static/ {printf \"%s;%s\n\", f[1], f[2]; next; }
+
+# lines starting with 3 slashes ///
+	/[^/]\/\/\/[^/](.*)/ {print substr(\$0,index(\$0,\"///\")+3); next; }
+
+# include other files, except this one
+
+	/^#/ && !/\"$headerfile\"/{print; next}
+#	/^#/ && !/^#include/ && !/\"$headerfile\"/{print; next}
+
+	" $1 >> $outfile

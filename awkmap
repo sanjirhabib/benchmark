@@ -1,0 +1,8 @@
+#!/usr/bin/gawk -f
+BEGIN {
+	for (i=0; i<5000000; i++){
+		ret["id." (i%500000)]="val." i;
+	};
+	print length(ret);
+	print ret["id.10009"];
+}

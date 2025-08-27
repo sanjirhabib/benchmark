@@ -3,4 +3,7 @@ ret={}
 for i=1,5000000 do
 	ret["id."..(i%500000)]="val."..i
 end
+total=0
+for n in pairs(ret) do total=total+1 end
+print(total)
 print(ret["id.10000"])

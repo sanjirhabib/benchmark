@@ -1,0 +1,13 @@
+#!/usr/bin/env elixir
+defmodule Elixirmap do
+	def loop(ret, i) do
+		if i>=5000000 do
+			ret
+		else
+			loop(Map.put(ret, "id." <> to_string(rem(i,500000)), "val." <> to_string(i)), i+1)
+		end
+	end
+end
+ret=Elixirmap.loop(%{}, 0)
+IO.puts map_size(ret)
+IO.puts ret["id.10000"]

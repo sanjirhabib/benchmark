@@ -1,0 +1,15 @@
+/web/benchmark/map/dotnetmap/bin/Release/net6.0/dotnetmap
+/web/benchmark/map/dotnetmap/bin/Release/net6.0/dotnetmap.deps.json
+/web/benchmark/map/dotnetmap/bin/Release/net6.0/dotnetmap.runtimeconfig.json
+/web/benchmark/map/dotnetmap/bin/Release/net6.0/dotnetmap.dll
+/web/benchmark/map/dotnetmap/bin/Release/net6.0/dotnetmap.pdb
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.csproj.AssemblyReference.cache
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.GeneratedMSBuildEditorConfig.editorconfig
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.AssemblyInfoInputs.cache
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.AssemblyInfo.cs
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.csproj.CoreCompileInputs.cache
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.dll
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/ref/dotnetmap.dll
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.pdb
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/dotnetmap.genruntimeconfig.cache
+/web/benchmark/map/dotnetmap/obj/Release/net6.0/refint/dotnetmap.dll

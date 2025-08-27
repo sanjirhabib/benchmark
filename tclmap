@@ -1,0 +1,9 @@
+#!/usr/bin/tclsh
+array set ret {}
+for {set i 0} {$i < 5000000} {incr i} {
+	set key "id.[expr {$i % 500000}]"
+    set ret($key) "val.$i"
+}
+puts [array size ret]
+puts $ret(id.10000)
+

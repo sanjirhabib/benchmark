@@ -1,0 +1,78 @@
+500000
+val.4510000
+./phpmap  	Time: 0.65 	Memory: 70 mb	Score: 45
+500000
+val.4510000
+./cmap  	Time: 1.14 	Memory: 55 mb	Score: 63
+500000
+val.4510000
+./sparsemap  	Time: 1.82 	Memory: 36 mb	Score: 66
+500000
+val.4510000
+./cppmap  	Time: 1.28 	Memory: 56 mb	Score: 72
+500000
+val.4510000
+./cppmap2  	Time: 1.71 	Memory: 54 mb	Score: 93
+500000
+val.4510000
+./swiftmap  	Time: 1.69 	Memory: 57 mb	Score: 96
+500000
+val.4510000
+./densemap  	Time: 1.26 	Memory: 99 mb	Score: 125
+500000
+val.4510000
+./rustmap  	Time: 1.75 	Memory: 103 mb	Score: 181
+500000
+val.4510000
+./zigmap  	Time: 1.34 	Memory: 159 mb	Score: 213
+500000
+val.4510000
+./nimmap  	Time: 2.83 	Memory: 87 mb	Score: 248
+500000
+val.4510000
+./gomap  	Time: 2.37 	Memory: 105 mb	Score: 250
+500000
+val.4510000
+./vmap  	Time: 2.95 	Memory: 87 mb	Score: 258
+500000
+val.4510000
+./perlmap  	Time: 2.06 	Memory: 132 mb	Score: 272
+500000
+val.4510000
+./pythonmap  	Time: 3.72 	Memory: 85 mb	Score: 317
+500000
+val.4510000
+./ocamlmap  	Time: 3.30 	Memory: 111 mb	Score: 367
+500000
+val.4510000
+dotnet  	Time: 3.40 	Memory: 159 mb	Score: 541
+500000
+val.4510009
+./awkmap  	Time: 2.92 	Memory: 166 mb	Score: 487
+500000
+val.4510000
+./luamap  	Time: 4.50 	Memory: 192 mb	Score: 866
+500000
+val.4510000
+java  	Time: 2.27 	Memory: 420 mb	Score: 953
+500000
+val.4510000
+./bunmap  	Time: 3.84 	Memory: 335 mb	Score: 1288
+500000
+val.4510000
+./nodemap  	Time: 5.01 	Memory: 294 mb	Score: 1473
+500000
+val.4510000
+./rubymap  	Time: 12.13 	Memory: 124 mb	Score: 1508
+500000
+val.4510000
+./tclmap  	Time: 9.74 	Memory: 206 mb	Score: 2007
+500000
+val.4510000
+./juliamap  	Time: 4.49 	Memory: 476 mb	Score: 2138
+500000
+"val.4510000"
+./haskellmap  	Time: 14.40 	Memory: 443 mb	Score: 6391
+500000
+val.4510000
+./elixirmap  	Time: 9.61 	Memory: 746 mb	Score: 7172

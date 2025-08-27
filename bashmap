@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+declare -A ret
+for (( i=0; i<500000; i++ )) do
+	ret["id.$(($i%500000))"]="val.$i"
+done
+echo ${#ret[@]}
+echo ${ret[id.10000]}

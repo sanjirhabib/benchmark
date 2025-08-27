@@ -1,0 +1,7 @@
+#!/usr/bin/env julia
+ret=Dict()
+for i in 0:5000000
+	ret["id."*string(i%500000)]="val."*string(i)
+end
+println(length(ret))
+println(ret["id.10000"])

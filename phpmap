@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+#!/usr/bin/php -n
 <?
 $ret=[];
 for($i=0; $i<5000000; $i++){

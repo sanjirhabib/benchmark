@@ -1,0 +1,9 @@
+#!/usr/bin/env crystal
+ret=Hash(String,String).new
+i=0
+while i < 5000000
+  ret["id."+(i%500000).to_s]="val."+i.to_s
+  i+=1
+end
+puts ret.size()
+puts ret["id.10000"]
