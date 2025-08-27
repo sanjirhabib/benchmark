@@ -10,11 +10,12 @@ Benchmark for C vs 20 other languages.
 
 These three things in one go. Critical in web application development.
 
-#### Process
-This basically is 4 line task.
+#### The Task
+Basically a 4 line task.
+
 - Create a hashmap.
 - Add 500,000 items 10 times over.
-- Measure speed and memory consumption.
+- Print 2 values to indicate the task was successful.
 
 Score gives equal weight on speed and memory.
 
@@ -23,7 +24,7 @@ Score gives equal weight on speed and memory.
 
 #### What it says :
 
-I initially wrote these tests in 2010s, when it was generally assumed :
+Initially wrote these tests in 2010, when these were generally assumed :
 
 - lua-jit is the fastest scripting language around. Almost as fast as C.
 - Compiled languages like Swift and Go are x10 faster than interpretated languages, like PHP or Ruby
@@ -103,7 +104,7 @@ There's a list of optimizations that I DIDN'T perform :
 So basically just a regular C program, without any special optimization.
 
 
-#### How to build the programs?
+#### How do I build the programs?
 ```
 make clean        # to clear revious builds
 make all          # to build programs one by one, you need to have the build invironment installed
@@ -128,3 +129,9 @@ val.4510000
 rustmap  	Time: 2.92 	Memory: 103 mb	Score: 301
 $
 ```
+
+#### Where's the C code?
+
+The benchmark code is in cmap.c
+
+But the library is in clib/ directory
