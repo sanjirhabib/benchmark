@@ -1,0 +1,25 @@
+#!/bin/bash
+if [[ "$1" == "-h" ]]; then
+	echo ""
+	echo "Usage : cheader.api <file.h>"
+	exit -1
+fi
+gawk "
+
+	/struct .*{\/\/private/ {struc=1; next}
+	struc && /^}/ {struc=0; next}
+	struc {next}
+
+	/(.+)\/\/private/ {next}
+	/^#pragma once/ {next}
+	/^#include \"/ {next}
+
+	/^static/ {next}
+
+	/^#/ && /\\$/{inheader=1;}
+	inheader { print; }
+	inheader && !/\\\\$/ {inheader=0; next;}
+	
+	{print}
+
+" $1
